@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Helping Hand</title>
+    <!-- icons and links -->
+    <link rel="shortcut icon" href="images/main-logo-light.svg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/531820bc49.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- About page -->
+    <section id="abt-pg">
+        <div class="theme-toggle">
+            <div class="toggle-ball"></div>
+        </div>
+        <div class="menu open">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-bar">
+            <nav>
+                <ul>
+                    <li><a href="#pg-1" onclick="remove()">Clock</a></li>
+                    <li><a href="#pg-2" onclick="remove()">Stopwatch</a></li>
+                    <li><a href="#pg-3" onclick="remove()">Calculator</a></li>
+                    <li><a href="#pg-4" onclick="remove()">Color Code Generator</a></li>
+                    <li><a href="#pg-5" onclick="remove()">Weather App</a></li>
+                </ul>
+            </nav>
+        </div>
+        <a class="to-the-top" href="#abt-pg">
+            <i class="fa-sharp fa-solid fa-arrow-up"></i>
+        </a>
+        <h1 class="main-heading">A <span>Helping<img class="logo-img" src="images/main-logo-light.svg"></span> Hand,</h1>
+        <h2 class="abt-txt"><span class="my-txt"></span><span id="cursor"></span></h2>
+    </section>
+
+    <!-- Clock page -->
+    <section id="pg-1">
+        <div class="clock-wrap">
+            <span class="hour-hand"></span>
+            <span class="minute-hand"></span>
+            <span class="second-hand"></span>
+        </div>
+        <h1 class="time-data"><span class="time-scs"></span><span class="time-abt"></span></h1>
+    </section>
+
+    <!-- Stopwatch page -->
+    <section id="pg-2">
+        <div class="stopwatch-wrap">
+            <h1 class="sw-head">Stopwatch</h1>
+            <div class="stopwatch-data">
+                <div class="hour-data">
+                    <h1 class="hour-val">00</h1>
+                    <h6>Hour</h6>
+                </div>
+                <div class="minute-data">
+                    <h1 class="minute-val">00</h1>
+                    <h6>Minute</h6>
+                </div>
+                <div class="second-data">
+                    <h1 class="second-val">00</h1>
+                    <h6>Second</h6>
+                </div>
+            </div>
+            <div class="btns">
+                <i class="fa-sharp fa-solid fa-play" onclick="setTimeout(startSW, 1000)" title="Start"></i>
+                <i class="fa-sharp fa-solid fa-stop" onclick="stopSW()" title="Stop"></i>
+                <i class="fa-sharp fa-solid fa-hourglass-start" onclick="resetSW()" title="Reset"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopwatch page -->
+    <section id="pg-3">
+        <audio src="sounds/keypress-sound-effect.mp3" id="keypress"></audio>
+        <form class="calculator" name="calc">
+            <input type="text" class="value1" name="txt1" readonly="">
+            <input type="text" class="value2" name="txt2" readonly="">
+            <span class="key allclear"
+                onclick="document.querySelector('.value1').value = ''; document.querySelector('.value2').value = '';">AC</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '/'">/</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '*'">*</span>
+            <span class="key"
+                onclick="document.querySelector('.value2').value = document.querySelector('.value2').value.substring(0, document.querySelector('.value2').value.length - 1)">
+                <i class="fa-solid fa-delete-left"></i></span>
+            <span class="key" onclick="document.querySelector('.value2').value += '7'">7</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '8'">8</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '9'">9</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '-'">-</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '4'">4</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '5'">5</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '6'">6</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '+'">+</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '1'">1</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '2'">2</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '3'">3</span>
+            <span class="key equal"
+                onclick="document.querySelector('.value1').value = document.querySelector('.value2').value; document.querySelector('.value2').value = eval(document.querySelector('.value2').value);">=</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '%'">%</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '0'">0</span>
+            <span class="key" onclick="document.querySelector('.value2').value += '.'">.</span>
+        </form>
+    </section>
+
+    <!-- Colorcode generator page -->
+    <section id="pg-4">
+        <h1 id="clr-code-heading" title="Copy"></h1>
+        <h4 class="clr-desc">click to generate a color</h4>
+    </section>
+
+    <!-- Weather app page -->
+    <section id="pg-5">
+        <div class="app-container">
+            <input class="city-name" type="test" placeholder="Enter city name" spellcheck="false">
+            <h6 class="error api-er-mssg"></h6>
+            <h6 class="error br-er-mssg"></h6>
+            <h2 class="city-details">-</h2>
+            <h3 class="city-time">-</h3>
+            <img class="w-img" src="">
+            <h1 class="temp" title="click to change unit"><span class="temp-val">-</span><span>&deg;</span><span
+                    class="temp-unit">C</span></h1>
+            <h2 class="temp-abt">-</h2>
+            <div class="details-btn">More Details</div>
+        </div>
+        <div class="details-blog">
+            <i class="fa-solid fa-xmark"></i>
+            <h2 class="detail temp-min">Minimum Temperature : <span>-</span> &deg;c</h2>
+            <h2 class="detail temp-max">Maximum Temperature : <span>-</span> &deg;c</h2>
+            <h2 class="detail humid">Humidity : <span>-</span> %</h2>
+            <h2 class="detail temp-desc">Description : <span>-</span></h2>
+            <h2 class="detail wind-abt">Wind : <span>-</span> ms<sup>-1</sup></h2>
+        </div>
+    </section>
+</body>
+
+</html>
