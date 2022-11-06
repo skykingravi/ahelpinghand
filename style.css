@@ -30,6 +30,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
     background: var(--pcolor);
 }
@@ -396,6 +397,7 @@ body {
     font-size: 30px;
     scale: 2;
     border: 5px solid var(--scolor);
+    background: var(--scolor);
 }
 .value1{
     height: 30px;
@@ -593,9 +595,9 @@ body {
 /* media querries */
 @media screen and (max-width: 650px) {
     .stopwatch-wrap{
-        scale: 1;
+        scale: 1.2;
     }
     .calculator{
-        scale: 1.2;
+        scale: 1.5;
     }
 }
