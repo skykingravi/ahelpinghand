@@ -38,7 +38,8 @@
         <a class="to-the-top" href="#abt-pg">
             <i class="fa-sharp fa-solid fa-arrow-up"></i>
         </a>
-        <h1 class="main-heading">A <span>Helping<img class="logo-img" src="images/main-logo-light.svg"></span> Hand,</h1>
+        <h1 class="main-heading">A <span>Helping<img class="logo-img" src="images/main-logo-light.svg"></span> Hand,
+        </h1>
         <h2 class="abt-txt"><span class="my-txt"></span><span id="cursor"></span></h2>
     </section>
 
@@ -55,30 +56,24 @@
     <!-- Stopwatch page -->
     <section id="pg-2">
         <div class="stopwatch-wrap">
-            <h1 class="sw-head">Stopwatch</h1>
-            <div class="stopwatch-data">
-                <div class="hour-data">
-                    <h1 class="hour-val">00</h1>
-                    <h6>Hour</h6>
-                </div>
-                <div class="minute-data">
-                    <h1 class="minute-val">00</h1>
-                    <h6>Minute</h6>
-                </div>
-                <div class="second-data">
-                    <h1 class="second-val">00</h1>
-                    <h6>Second</h6>
-                </div>
+            <div class="sw-data">
+                <div class="sw-hr">00</div>
+                <!-- <span>Hours</span> -->
+                <div class="sw-mn">00</div>
+                <!-- <span>Minutes</span> -->
+                <div class="sw-sc">00</div>
+                <!-- <span>Seconds</span> -->
+                <div class="sw-ms">00</div>
+                <!-- <span>Milliseconds</span> -->
             </div>
-            <div class="btns">
-                <i class="fa-sharp fa-solid fa-play" onclick="setTimeout(startSW, 1000)" title="Start"></i>
-                <i class="fa-sharp fa-solid fa-stop" onclick="stopSW()" title="Stop"></i>
-                <i class="fa-sharp fa-solid fa-hourglass-start" onclick="resetSW()" title="Reset"></i>
+            <div class="sw-btns">
+                <span class="start swbtn st">START</span>
+                <span class="reset swbtn">RESET</span>
             </div>
         </div>
     </section>
 
-    <!-- Stopwatch page -->
+    <!-- Calculator page -->
     <section id="pg-3">
         <audio src="sounds/keypress-sound-effect.mp3" id="keypress"></audio>
         <form class="calculator" name="calc">
@@ -88,7 +83,7 @@
                 onclick="document.querySelector('.value1').value = ''; document.querySelector('.value2').value = '';">AC</span>
             <span class="key" onclick="document.querySelector('.value2').value += '/'">/</span>
             <span class="key" onclick="document.querySelector('.value2').value += '*'">*</span>
-            <span class="key"
+            <span class="key sclr"
                 onclick="document.querySelector('.value2').value = document.querySelector('.value2').value.substring(0, document.querySelector('.value2').value.length - 1)">
                 <i class="fa-solid fa-delete-left"></i></span>
             <span class="key" onclick="document.querySelector('.value2').value += '7'">7</span>
@@ -119,7 +114,12 @@
     <!-- Weather app page -->
     <section id="pg-5">
         <div class="app-container">
-            <input class="city-name" type="test" placeholder="Enter city name" spellcheck="false">
+            <div class="city-data">
+                <input class="city-name" type="test" placeholder="Enter city name" spellcheck="false">
+                <span class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+            </div>
             <h6 class="error api-er-mssg"></h6>
             <h6 class="error br-er-mssg"></h6>
             <h2 class="city-details">-</h2>

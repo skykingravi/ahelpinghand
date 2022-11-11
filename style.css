@@ -34,6 +34,19 @@ body {
     position: relative;
     background: var(--pcolor);
 }
+/* For scrollbar */
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background: var(--pcolor);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--clr1);
+}
+::-webkit-scrollbar-thumb:hover{
+    background: var(--clr2);
+}
 
 /* About page */
 #abt-pg {
@@ -263,7 +276,7 @@ body {
     background: var(--pcolor);
     width: 10px;
     height: 10px;
-    z-index: 2;
+    z-index: 1;
     border-radius: 50%;
 }
 .hour-hand{
@@ -330,54 +343,76 @@ body {
     flex-direction: column;
     justify-content: center;
     background: var(--pcolor);
-    padding: 50px 20px;
+    padding: 100px 0;
 }
 .stopwatch-wrap{
-    width: 200px;
+    width: 150px;
     height: 200px;
-    color: var(--scolor);
-    background: var(--clr2);
-    position: relative;
-    scale: 2;
-    border: 2px solid var(--scolor);
-}
-.sw-head{
-    color: var(--pcolor);
-}
-.stopwatch-data{
-    width: 270px;
-    height: 120px;
     background: var(--scolor);
-    position: relative;
+    display: flex;
+    padding: 5px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    scale: 2.5;
+}
+.sw-data{
+    width: 100%;
+    height: 160px;
     color: var(--pcolor);
-    left: -35px;
     display: flex;
     align-items: center;
-}
-.hour-data, .minute-data, .second-data{
-    height: 100%;
-    width: 90px;
-    color: var(--pcolor);
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 25px;
 }
-.btns{
+.sw-data div{
+    font-size: 25px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    color: var(--pcolor);
+}
+.sw-data div::after{
+    content: ". .";
+    color: var(--pcolor);
+    position: absolute;
+    bottom: -12px;
+    width: 60px;
+    text-align: center;
+}
+.sw-data div:last-child:after{
+    content: "";
+}
+.sw-btns{
+    width: 100%;
+    padding: 0 5px;
+    height: 25px;
+    gap: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 45px;
+    font-size: 12px;
 }
-.btns i{
-    cursor: pointer;
-    padding: 5px 15px;
-    font-size: 20px;
+.start{
+    width: 80px;
+    height: 100%;
+    background: var(--clr2);
     color: var(--pcolor);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+.reset{
+    width: 80px;
+    height: 100%;
+    background: var(--clr1);
+    color: var(--pcolor);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+.swbtn:hover{
+    transform: translateY(-1px);
 }
 
 /* Calculator page */
@@ -441,6 +476,9 @@ body {
     height: 100px;
     background: var(--clr1);
 }
+.sclr i{
+    color: var(--pcolor);
+}
 .allclear{
     background: var(--clr1);
 }
@@ -494,16 +532,35 @@ body {
     backdrop-filter: blur(2px);
     /* border: 1px solid #ECECEC; */
 }
-
+.city-data{
+    width: 80%;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin: 20px auto 5px;
+    background: var(--pcolor);
+}
 .city-name {
-    width: 90%;
-    margin: 20px 0 5px;
+    width: calc(100% - 30px);
     outline: none;
     border: none;
-    padding: 5px 10px;
+    height: 100%;
+    padding: 5px 5px 5px 10px;
     font-size: 25px;
     color: var(--scolor);
     background: var(--pcolor);
+}
+.search{
+    height: 100%;
+    background: var(--pcolor);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 0 10px 0 5px;
+}
+.search i{
+    color: var(--scolor);
+    font-size: 20px;
 }
 
 .error {
@@ -515,11 +572,13 @@ body {
     margin-top: 10px;
     color: var(--pcolor);
     font-size: 40px;
+    padding: 0 5px;
 }
 
 .city-time {
     color: var(--pcolor);
     font-size: 20px;
+    padding: 0 5px;
 }
 
 .w-img {
@@ -532,6 +591,9 @@ body {
     color: var(--pcolor);
     cursor: pointer;
 }
+.temp-val, .temp span{
+    color: var(--pcolor);
+}
 
 .temp-unit {
     font-size: 40px;
@@ -540,6 +602,7 @@ body {
 
 .temp-abt {
     font-size: 30px;
+    padding: 0 5px;
     color: var(--pcolor);
 }
 
@@ -590,14 +653,23 @@ body {
     top: 5px;
     cursor: pointer;
     font-size: 50px;
+    color: var(--scolor);
 }
 
 /* media querries */
 @media screen and (max-width: 650px) {
     .stopwatch-wrap{
-        scale: 1.2;
+        scale: 2;
     }
     .calculator{
         scale: 1.5;
+    }
+}
+@media screen and (max-width: 320px) {
+    .stopwatch-wrap{
+        scale: 1.2;
+    }
+    .calculator{
+        scale: 1;
     }
 }

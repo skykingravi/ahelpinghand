@@ -8,7 +8,7 @@ function type() {
         myTxt.textContent += txt.charAt(indx);
         indx++;
         cursor.style.animation = "none";
-        setTimeout(type, 200);
+        setTimeout(type, 80);
     }
     else {
         cursor.style.animation = "blink 1s linear 0s infinite forwards";
@@ -19,7 +19,7 @@ function erase() {
     if (myTxt.textContent.length != 0) {
         myTxt.textContent = myTxt.textContent.substring(0, indx - 1);
         indx--;
-        setTimeout(erase, 50);
+        setTimeout(erase, 40);
         cursor.style.animation = "none";
     }
     else {
@@ -96,44 +96,61 @@ let showClkTime = setInterval(() => {
 }, 1000);
 
 // Stopwatch page
-let swhr, swmn, swsc;
-let afCall;
-let h = m = s = 0;
-
-let startSW = () => {
-    s++;
-    if (s == 60) {
-        s = 0;
-        m++;
+let swaudio = document.getElementById("keypress");
+document.querySelectorAll(".swbtn").forEach((e) => {
+    e.addEventListener("click", () => {
+        audio.currentTime = 0;
+        audio.play();
+    });
+});
+let swhr = swmn = swsc = swms = 0;
+let swInterval;
+document.querySelector(".start").addEventListener("click", function(){
+    if (this.classList.contains("st")){
+        this.textContent = "STOP";
+        this.classList.replace("st", "sp");
+        swInterval = setInterval(swCntrl, 10);
     }
-    if (m == 60) {
-        m = 0;
-        h++;
+    else{
+        this.textContent = "START";
+        this.classList.replace("sp", "st");
+        clearInterval(swInterval);
     }
-    swhr = (h < 10) ? `0${h}` : h;
-    swmn = (m < 10) ? `0${m}` : m;
-    swsc = (s < 10) ? `0${s}` : s;
-    document.querySelector(".hour-val").textContent = swhr;
-    document.querySelector(".minute-val").textContent = swmn;
-    document.querySelector(".second-val").textContent = swsc;
-    afCall = setTimeout(startSW, 1000);
-};
+});
+document.querySelector(".reset").addEventListener("click", function(){
+    clearInterval(swInterval);
+    swhr = swmn = swsc = swms = 0;
+    document.querySelector(".sw-hr").textContent = (swhr < 10) ? `0${swhr}` : swhr;
+    document.querySelector(".sw-mn").textContent = (swmn < 10) ? `0${swmn}` : swmn;
+    document.querySelector(".sw-sc").textContent = (swsc < 10) ? `0${swsc}` : swsc;
+    document.querySelector(".sw-ms").textContent = (swms < 10) ? `0${swms}` : swms;
+    if (document.querySelector(".start").classList.contains("sp")){
+        document.querySelector(".start").textContent = "START";
+        document.querySelector(".start").classList.replace("sp", "st");
+    }
+});
 
-let stopSW = () => {
-    clearTimeout(afCall);
-    document.querySelector(".hour-val").textContent = swhr;
-    document.querySelector(".minute-val").textContent = swmn;
-    document.querySelector(".second-val").textContent = swsc;
-};
-
-let resetSW = () => {
-    h = m = s = 0;
-    swhr = (h < 10) ? `0${h}` : h;
-    swmn = (m < 10) ? `0${m}` : m;
-    swsc = (s < 10) ? `0${s}` : s;
-    document.querySelector(".hour-val").textContent = swhr;
-    document.querySelector(".minute-val").textContent = swmn;
-    document.querySelector(".second-val").textContent = swsc;
+let swCntrl = () => {
+    swms++;
+    if (swms == 100)
+    {
+        swms = 0;
+        swsc++;
+    }
+    if (swsc == 60)
+    {
+        swsc = 0;
+        swmn++;
+    }
+    if (swmn == 60)
+    {
+        swmn = 0;
+        swhr++;
+    }
+    document.querySelector(".sw-hr").textContent = (swhr < 10) ? `0${swhr}` : swhr;
+    document.querySelector(".sw-mn").textContent = (swmn < 10) ? `0${swmn}` : swmn;
+    document.querySelector(".sw-sc").textContent = (swsc < 10) ? `0${swsc}` : swsc;
+    document.querySelector(".sw-ms").textContent = (swms < 10) ? `0${swms}` : swms;
 };
 
 // Calculator page
@@ -222,6 +239,11 @@ if (navigator.geolocation) {
 
 citytxt.addEventListener("keypress", (k) => {
     if (k.key == "Enter" && citytxt.value != "") {
+        showCityWeather(citytxt.value);
+    }
+});
+document.querySelector(".search").addEventListener("click", function() {
+    if (document.querySelector(".city-name").value != "") {
         showCityWeather(citytxt.value);
     }
 });
