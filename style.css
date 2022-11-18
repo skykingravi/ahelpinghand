@@ -593,6 +593,16 @@ body {
 .search i{
     color: var(--scolor);
     font-size: 20px;
+    position: relative;
+}
+.search i a{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    text-decoration: none;
 }
 
 .error {
