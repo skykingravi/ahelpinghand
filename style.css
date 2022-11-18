@@ -35,7 +35,7 @@ body {
     background: var(--pcolor);
 }
 /* For scrollbar */
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
     width: 6px;
 }
 ::-webkit-scrollbar-track{
@@ -46,7 +46,7 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover{
     background: var(--clr2);
-}
+} */
 
 /* About page */
 #abt-pg {
@@ -58,6 +58,7 @@ body {
     justify-content: center;
     background: var(--pcolor);
     padding: 50px 20px;
+    overflow-x: hidden;
 }
 
 .theme-toggle {
@@ -68,7 +69,7 @@ body {
     height: 30px;
     background: var(--scolor);
     cursor: pointer;
-    z-index: 3;
+    z-index: 9;
 }
 
 .toggle-ball {
@@ -91,7 +92,7 @@ body {
     top: 5px;
     left: 7.5px;
     cursor: pointer;
-    z-index: 3;
+    z-index: 8;
 }
 
 .menu span {
@@ -143,7 +144,7 @@ body {
     display: grid;
     place-items: center;
     font-size: 20px;
-    z-index: 3;
+    z-index: 6;
 }
 .to-the-top i{
     color: var(--pcolor);
@@ -159,13 +160,11 @@ body {
     position: relative;
 }
 
-.main-heading span img {
-    width: 20px;
-    height: 20px;
-    background: var(--pcolor);
-    position: absolute;
-    top: 6px;
-    left: calc(50% + 18px);
+.logo-img {
+    width: 150px;
+}
+.logo-img g{
+    transition: none;
 }
 
 .abt-txt {
@@ -217,7 +216,7 @@ body {
     top: 100%;
     left: 0;
     color: var(--scolor);
-    z-index: 2;
+    z-index: 7;
     overflow-y: scroll;
     padding: 60px 30px;
     transition: all .5s ease;
@@ -260,6 +259,7 @@ body {
     justify-content: center;
     background: var(--pcolor);
     padding: 50px 20px;
+    overflow-x: hidden;
 }
 .clock-wrap{
     width: 200px;
@@ -344,6 +344,7 @@ body {
     justify-content: center;
     background: var(--pcolor);
     padding: 100px 0;
+    overflow-x: hidden;
 }
 .stopwatch-wrap{
     width: 150px;
@@ -425,6 +426,7 @@ body {
     justify-content: center;
     background: var(--pcolor);
     padding: 50px 20px;
+    overflow-x: hidden;
 }
 .calculator{
     position: relative;
@@ -497,11 +499,40 @@ body {
     padding: 50px 20px;
     position: relative;
     transition: none;
+    overflow-x: hidden;
+}
+.bg-hex{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: none;
+}
+.clr-data{
+    position: relative;
+    cursor: pointer;
+    width: 275px;
+    height: 85px;
 }
 #clr-code-heading{
     transition: none;
     font-size: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
     cursor: pointer;
+    padding: 5px 20px;
+    transition: background .5s ease;
+}
+.clr-code-temp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 275px;
+    height: 85px;
+    opacity: 0;
+    transition: opacity .25s ease;
 }
 .clr-desc{
     font-size: 15px;
@@ -521,6 +552,7 @@ body {
     padding: 50px 0;
     position: relative;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .app-container {
@@ -654,6 +686,10 @@ body {
     cursor: pointer;
     font-size: 50px;
     color: var(--scolor);
+}
+
+body, .pg, .details-blog{
+    overflow-x: hidden !important;
 }
 
 /* media querries */

@@ -43,14 +43,14 @@ toggleBtn.addEventListener("click", () => {
         toggleBtn.classList.toggle("dark");
         rootElement.style.setProperty("--pcolor", "#121212");
         rootElement.style.setProperty("--scolor", "#ECECEC");
-        document.querySelector(".logo-img").src = "images/main-logo-dark.svg";
+        document.querySelector(".logo-img g").setAttribute("fill", "#ECECEC");
         document.querySelector(".app-container").style.background = "rgba(255, 255, 255, .2)";
     }
     else {
         toggleBtn.classList.toggle("dark");
         rootElement.style.setProperty("--pcolor", "#ECECEC");
         rootElement.style.setProperty("--scolor", "#121212");
-        document.querySelector(".logo-img").src = "images/main-logo-light.svg";
+        document.querySelector(".logo-img g").setAttribute("fill", "#121212");
         document.querySelector(".app-container").style.background = "rgba(0, 0, 0, .2)";
     }
 });
@@ -105,26 +105,26 @@ document.querySelectorAll(".swbtn").forEach((e) => {
 });
 let swhr = swmn = swsc = swms = 0;
 let swInterval;
-document.querySelector(".start").addEventListener("click", function(){
-    if (this.classList.contains("st")){
+document.querySelector(".start").addEventListener("click", function () {
+    if (this.classList.contains("st")) {
         this.textContent = "STOP";
         this.classList.replace("st", "sp");
         swInterval = setInterval(swCntrl, 10);
     }
-    else{
+    else {
         this.textContent = "START";
         this.classList.replace("sp", "st");
         clearInterval(swInterval);
     }
 });
-document.querySelector(".reset").addEventListener("click", function(){
+document.querySelector(".reset").addEventListener("click", function () {
     clearInterval(swInterval);
     swhr = swmn = swsc = swms = 0;
     document.querySelector(".sw-hr").textContent = (swhr < 10) ? `0${swhr}` : swhr;
     document.querySelector(".sw-mn").textContent = (swmn < 10) ? `0${swmn}` : swmn;
     document.querySelector(".sw-sc").textContent = (swsc < 10) ? `0${swsc}` : swsc;
     document.querySelector(".sw-ms").textContent = (swms < 10) ? `0${swms}` : swms;
-    if (document.querySelector(".start").classList.contains("sp")){
+    if (document.querySelector(".start").classList.contains("sp")) {
         document.querySelector(".start").textContent = "START";
         document.querySelector(".start").classList.replace("sp", "st");
     }
@@ -132,18 +132,15 @@ document.querySelector(".reset").addEventListener("click", function(){
 
 let swCntrl = () => {
     swms++;
-    if (swms == 100)
-    {
+    if (swms == 100) {
         swms = 0;
         swsc++;
     }
-    if (swsc == 60)
-    {
+    if (swsc == 60) {
         swsc = 0;
         swmn++;
     }
-    if (swmn == 60)
-    {
+    if (swmn == 60) {
         swmn = 0;
         swhr++;
     }
@@ -165,16 +162,21 @@ keyArr.forEach((e) => {
 
 // Colorcode generator page
 let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+let hexObj = { '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11, 'c': 12, 'd': 13, 'e': 14, 'f': 15, };
 let hexHead = document.getElementById("clr-code-heading");
-let bgHex = document.getElementById("pg-4");
-let hexCode;
+let bgHex = document.querySelector(".bg-hex");
+let bgHexBfr = document.querySelector(".clr-code-temp");
+var hexCode;
 function genclr() {
     hexCode = genhex();
     bgHex.style.background = hexCode;
     hexHead.textContent = hexCode;
-    bgHex.style.color = lightOrDark(hexCode);
+    hexHead.style.color = lightOrDark(hexCode);
+    bgHexBfr.style.background = lightOrDark(hexCode);
+    bgHexBfr.style.opacity = '0';
 }
 function genhex() {
+    // math functions - floor and random
     return `#${hex[Math.floor(Math.random() * hex.length)]}${hex[Math.floor(Math.random() * hex.length)]}${hex[Math.floor(Math.random() * hex.length)]}${hex[Math.floor(Math.random() * hex.length)]}${hex[Math.floor(Math.random() * hex.length)]}${hex[Math.floor(Math.random() * hex.length)]}`;
 }
 genclr();
@@ -183,29 +185,25 @@ bgHex.addEventListener("click", () => {
     genclr();
 });
 hexHead.addEventListener("click", () => {
+    // copy to clipboard
     navigator.clipboard.writeText(hexCode);
+    bgHexBfr.style.opacity = '.1';
 });
 
 function lightOrDark(color) {
-    var r, g, b, hsp;
-    if (color.match(/^rgb/)) {
-        color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
-        r = color[1];
-        g = color[2];
-        b = color[3];
-    }
-    else {
-        color = +("0x" + color.slice(1).replace(
-            color.length < 5 && /./g, '$&$&'));
-        r = color >> 16;
-        g = color >> 8 & 255;
-        b = color & 255;
-    }
-    hsp = Math.sqrt(
+
+    // hexadecimal to decimal conversion
+    var r = (16 * hexObj[color[1]]) + hexObj[color[2]];
+    var g = (16 * hexObj[color[3]]) + hexObj[color[4]];
+    var b = (16 * hexObj[color[5]]) + hexObj[color[6]];
+
+    // use this to differentiate between dark and light colors
+    var hsp = Math.sqrt(
         0.299 * (r * r) +
         0.587 * (g * g) +
         0.114 * (b * b)
     );
+
     if (hsp > 127.5) {
 
         return 'black';
@@ -242,7 +240,7 @@ citytxt.addEventListener("keypress", (k) => {
         showCityWeather(citytxt.value);
     }
 });
-document.querySelector(".search").addEventListener("click", function() {
+document.querySelector(".search").addEventListener("click", function () {
     if (document.querySelector(".city-name").value != "") {
         showCityWeather(citytxt.value);
     }
