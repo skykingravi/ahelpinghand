@@ -59,18 +59,18 @@ menu.addEventListener("click", () => {
     if (menu.classList.contains("open")) {
         menu.classList.replace("open", "close");
         menuBar.classList.toggle("show");
-        document.body.style.overflow = "hidden";
+        // document.body.style.overflow = "hidden";
     }
     else {
         menu.classList.replace("close", "open");
         menuBar.classList.toggle("show");
-        document.body.style.overflow = "hidden scroll";
+        // document.body.style.overflow = "hidden scroll";
     }
 });
 let remove = () => {
     document.querySelector('.menu-bar').classList.toggle('show');
     menu.classList.replace("close", "open");
-    document.body.style.overflow = "hidden scroll";
+    // document.body.style.overflow = "hidden scroll";
 };
 
 // Clock page

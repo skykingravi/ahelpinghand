@@ -14,35 +14,35 @@
 </head>
 
 <body>
+    <div class="menu open">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="menu-bar">
+        <nav>
+            <ul>
+                <li><a href="#pg-1" onclick="remove()">Clock</a></li>
+                <li><a href="#pg-2" onclick="remove()">Stopwatch</a></li>
+                <li><a href="#pg-3" onclick="remove()">Calculator</a></li>
+                <li><a href="#pg-4" onclick="remove()">Color Code Generator</a></li>
+                <li><a href="#pg-5" onclick="remove()">Weather App</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="theme-toggle">
+        <div class="toggle-ball"></div>
+    </div>
     <!-- About page -->
     <section id="abt-pg" class="pg">
-        <div class="theme-toggle">
-            <div class="toggle-ball"></div>
-        </div>
-        <div class="menu open">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="menu-bar">
-            <nav>
-                <ul>
-                    <li><a href="#pg-1" onclick="remove()">Clock</a></li>
-                    <li><a href="#pg-2" onclick="remove()">Stopwatch</a></li>
-                    <li><a href="#pg-3" onclick="remove()">Calculator</a></li>
-                    <li><a href="#pg-4" onclick="remove()">Color Code Generator</a></li>
-                    <li><a href="#pg-5" onclick="remove()">Weather App</a></li>
-                </ul>
-            </nav>
-        </div>
         <a class="to-the-top" href="#abt-pg">
             <i class="fa-sharp fa-solid fa-arrow-up"></i>
         </a>
         <svg class="logo-img" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1401.000000 1301.000000"
-                    preserveAspectRatio="xMidYMid meet">
+            preserveAspectRatio="xMidYMid meet">
 
-                    <g transform="translate(0.000000,1301.000000) scale(0.100000,-0.100000)">
-                        <path d="M3870 12990 c-1165 -81 -2231 -623 -2965 -1507 -193 -232 -349 -472
+            <g transform="translate(0.000000,1301.000000) scale(0.100000,-0.100000)">
+                <path d="M3870 12990 c-1165 -81 -2231 -623 -2965 -1507 -193 -232 -349 -472
                 -490 -755 -208 -418 -327 -826 -387 -1323 -8 -70 -13 -222 -12 -415 0 -256 4
                 -332 22 -470 106 -788 381 -1432 877 -2054 l127 -159 -11 -91 c-18 -159 -20
                 -204 -11 -325 11 -146 31 -245 76 -380 186 -562 714 -965 1316 -1007 l97 -7 5
@@ -91,11 +91,9 @@
                 m1500 -1500 c214 -56 375 -261 375 -479 0 -85 -20 -170 -57 -240 -31 -59 -586
                 -625 -668 -681 -181 -125 -435 -108 -604 42 -187 164 -226 435 -92 639 56 85
                 621 642 687 677 106 56 243 72 359 42z" />
-                    </g>
-                </svg>
+            </g>
+        </svg>
         <h1 class="main-heading">A <span>Helping</span> Hand,</h1>
-        <!-- <h1 class="main-heading">A <span>Helping<img class="logo-img" src="images/ahelpinghand.svg"></span> Hand,
-        </h1> -->
         <h2 class="abt-txt"><span class="my-txt"></span><span id="cursor"></span></h2>
     </section>
 
@@ -114,13 +112,9 @@
         <div class="stopwatch-wrap">
             <div class="sw-data">
                 <div class="sw-hr">00</div>
-                <!-- <span>Hours</span> -->
                 <div class="sw-mn">00</div>
-                <!-- <span>Minutes</span> -->
                 <div class="sw-sc">00</div>
-                <!-- <span>Seconds</span> -->
                 <div class="sw-ms">00</div>
-                <!-- <span>Milliseconds</span> -->
             </div>
             <div class="sw-btns">
                 <span class="start swbtn st">START</span>
