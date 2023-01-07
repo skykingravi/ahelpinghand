@@ -8,7 +8,7 @@ function type() {
         myTxt.textContent += txt.charAt(indx);
         indx++;
         cursor.style.animation = "none";
-        setTimeout(type, 80);
+        setTimeout(type, 50);
     }
     else {
         cursor.style.animation = "blink 1s linear 0s infinite forwards";
@@ -19,8 +19,8 @@ function erase() {
     if (myTxt.textContent.length != 0) {
         myTxt.textContent = myTxt.textContent.substring(0, indx - 1);
         indx--;
-        setTimeout(erase, 40);
         cursor.style.animation = "none";
+        setTimeout(erase, 20);
     }
     else {
         cursor.style.animation = "blink 1s linear 0s infinite forwards";
@@ -162,7 +162,6 @@ keyArr.forEach((e) => {
 
 // Colorcode generator page
 let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
-let hexObj = { '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11, 'c': 12, 'd': 13, 'e': 14, 'f': 15, };
 let hexHead = document.getElementById("clr-code-heading");
 let bgHex = document.querySelector(".bg-hex");
 let bgHexBfr = document.querySelector(".clr-code-temp");
@@ -193,9 +192,10 @@ hexHead.addEventListener("click", () => {
 function lightOrDark(color) {
 
     // hexadecimal to decimal conversion
-    var r = (16 * hexObj[color[1]]) + hexObj[color[2]];
-    var g = (16 * hexObj[color[3]]) + hexObj[color[4]];
-    var b = (16 * hexObj[color[5]]) + hexObj[color[6]];
+    var r = (16 * hex.indexOf(color[1])) + hex.indexOf(color[2]);
+    var g = (16 * hex.indexOf(color[3])) + hex.indexOf(color[4]);
+    var b = (16 * hex.indexOf(color[5])) + hex.indexOf(color[6]);
+    // console.log(r,g,b);
 
     // use this to differentiate between dark and light colors
     var hsp = Math.sqrt(

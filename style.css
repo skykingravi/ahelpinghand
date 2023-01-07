@@ -3,12 +3,13 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-:root{
+:root {
     --clr1: #BB0E65;
     --clr2: #1791B1;
     --pcolor: #ECECEC;
     --scolor: #121212;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +22,11 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 body {
     width: 100vw;
     min-height: 100vh;
@@ -31,6 +34,7 @@ body {
     position: relative;
     background: var(--pcolor);
 }
+
 /* For scrollbar */
 /* ::-webkit-scrollbar{
     width: 6px;
@@ -46,7 +50,7 @@ body {
 } */
 
 /* For all pages */
-.pg{
+.pg {
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -91,6 +95,7 @@ body {
     background: var(--pcolor);
     transition: all .5s ease;
 }
+
 .dark .toggle-ball {
     left: 30px;
 }
@@ -115,6 +120,7 @@ body {
     left: 0;
     transition: all .5s ease;
 }
+
 .open span {
     width: 30px;
     left: 2.5px;
@@ -156,7 +162,8 @@ body {
     font-size: 20px;
     z-index: 6;
 }
-.to-the-top i{
+
+.to-the-top i {
     color: var(--pcolor);
 }
 
@@ -173,7 +180,8 @@ body {
 .logo-img {
     width: 150px;
 }
-.logo-img g{
+
+.logo-img g {
     transition: none;
 }
 
@@ -218,7 +226,7 @@ body {
 }
 
 /* Menu Bar */
-.menu-bar{
+.menu-bar {
     width: 100vw;
     height: 100vh;
     background: var(--pcolor);
@@ -232,16 +240,19 @@ body {
     transition: all .5s ease;
     visibility: hidden;
 }
-.show{
+
+.show {
     visibility: visible;
     top: 0;
 }
-.menu-bar ul{
+
+.menu-bar ul {
     list-style: none;
     display: flex;
     flex-direction: column;
 }
-.menu-bar ul li a{
+
+.menu-bar ul li a {
     padding: 10px 0;
     display: inline-block;
     width: 100%;
@@ -250,12 +261,12 @@ body {
     color: var(--scolor);
     font-size: 25px;
 }
-.menu-bar ul li:hover
-{
+
+.menu-bar ul li:hover {
     background: var(--scolor);
 }
-.menu-bar ul li:hover a
-{
+
+.menu-bar ul li:hover a {
     color: var(--pcolor);
 }
 
@@ -271,7 +282,7 @@ body {
     padding: 50px 20px;
     overflow-x: hidden;
 } */
-.clock-wrap{
+.clock-wrap {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -281,7 +292,8 @@ body {
     justify-content: center;
     align-items: center;
 }
-.clock-wrap::after{
+
+.clock-wrap::after {
     content: '';
     background: var(--pcolor);
     width: 10px;
@@ -289,7 +301,8 @@ body {
     z-index: 1;
     border-radius: 50%;
 }
-.hour-hand{
+
+.hour-hand {
     display: inline-block;
     width: 6px;
     height: 60px;
@@ -300,7 +313,8 @@ body {
     transform-origin: center 50px;
     transition: none;
 }
-.minute-hand{
+
+.minute-hand {
     display: inline-block;
     width: 4px;
     height: 80px;
@@ -311,7 +325,8 @@ body {
     transform-origin: center 70px;
     transition: none;
 }
-.second-hand{
+
+.second-hand {
     display: inline-block;
     width: 2px;
     height: 100px;
@@ -322,21 +337,24 @@ body {
     transform-origin: center 90px;
     transition: none;
 }
-.time-data{
+
+.time-data {
     display: inline-block;
     margin-top: 20px;
     font-size: 80px;
     position: relative;
     color: var(--scolor);
 }
-.time-scs{
+
+.time-scs {
     font-size: 30px;
     color: var(--clr1);
     position: absolute;
     bottom: -12px;
     right: 0;
 }
-.time-abt{
+
+.time-abt {
     font-size: 30px;
     color: var(--clr2);
     position: absolute;
@@ -356,7 +374,7 @@ body {
     padding: 100px 0;
     overflow-x: hidden;
 } */
-.stopwatch-wrap{
+.stopwatch-wrap {
     width: 150px;
     height: 200px;
     background: var(--scolor);
@@ -367,7 +385,8 @@ body {
     flex-direction: column;
     scale: 2.5;
 }
-.sw-data{
+
+.sw-data {
     width: 100%;
     height: 160px;
     color: var(--pcolor);
@@ -376,14 +395,16 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-.sw-data div{
+
+.sw-data div {
     font-size: 25px;
     position: relative;
     display: grid;
     place-items: center;
     color: var(--pcolor);
 }
-.sw-data div::after{
+
+.sw-data div::after {
     content: ". .";
     color: var(--pcolor);
     position: absolute;
@@ -391,10 +412,12 @@ body {
     width: 60px;
     text-align: center;
 }
-.sw-data div:last-child:after{
+
+.sw-data div:last-child:after {
     content: "";
 }
-.sw-btns{
+
+.sw-btns {
     width: 100%;
     padding: 0 5px;
     height: 25px;
@@ -404,7 +427,8 @@ body {
     align-items: center;
     font-size: 12px;
 }
-.start{
+
+.start {
     width: 80px;
     height: 100%;
     background: var(--clr2);
@@ -413,7 +437,8 @@ body {
     place-items: center;
     cursor: pointer;
 }
-.reset{
+
+.reset {
     width: 80px;
     height: 100%;
     background: var(--clr1);
@@ -422,7 +447,8 @@ body {
     place-items: center;
     cursor: pointer;
 }
-.swbtn:hover{
+
+.swbtn:hover {
     transform: translateY(-1px);
 }
 
@@ -438,7 +464,7 @@ body {
     padding: 50px 20px;
     overflow-x: hidden;
 } */
-.calculator{
+.calculator {
     position: relative;
     display: grid;
     font-size: 30px;
@@ -446,7 +472,8 @@ body {
     border: 5px solid var(--scolor);
     background: var(--scolor);
 }
-.value1{
+
+.value1 {
     height: 30px;
     grid-column: span 4;
     text-align: right;
@@ -458,7 +485,8 @@ body {
     border: solid var(--scolor);
     border-width: 0 0 2px;
 }
-.value2{
+
+.value2 {
     height: 70px;
     width: 200px;
     border: solid var(--scolor);
@@ -470,7 +498,8 @@ body {
     font-size: 30px;
     word-wrap: break-word;
 }
-.key{
+
+.key {
     grid-column: span 1;
     display: inline-block;
     font-size: 15px;
@@ -481,20 +510,24 @@ body {
     background: var(--scolor);
     color: var(--pcolor);
     place-items: center;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
 }
-.equal{
+
+.equal {
     grid-row: span 2;
     height: 100px;
     background: var(--clr1);
 }
-.sclr i{
+
+.sclr i {
     color: var(--pcolor);
 }
-.allclear{
+
+.allclear {
     background: var(--clr1);
 }
-.key:hover{
+
+.key:hover {
     background: var(--clr2);
 }
 
@@ -511,7 +544,7 @@ body {
     transition: none;
     overflow-x: hidden;
 } */
-.bg-hex{
+.bg-hex {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -519,13 +552,15 @@ body {
     left: 0;
     transition: none;
 }
-.clr-data{
+
+.clr-data {
     position: relative;
     cursor: pointer;
     width: 275px;
     height: 85px;
 }
-#clr-code-heading{
+
+#clr-code-heading {
     transition: none;
     font-size: 50px;
     position: absolute;
@@ -535,7 +570,8 @@ body {
     padding: 5px 20px;
     transition: background .5s ease;
 }
-.clr-code-temp{
+
+.clr-code-temp {
     position: absolute;
     top: 0;
     left: 0;
@@ -544,7 +580,8 @@ body {
     opacity: 0;
     transition: opacity .25s ease;
 }
-.clr-desc{
+
+.clr-desc {
     font-size: 15px;
     transition: none;
     position: absolute;
@@ -569,7 +606,8 @@ body {
     backdrop-filter: blur(2px);
     /* border: 1px solid #ECECEC; */
 }
-.city-data{
+
+.city-data {
     width: 80%;
     display: flex;
     height: 50px;
@@ -577,6 +615,7 @@ body {
     margin: 20px auto 5px;
     background: var(--pcolor);
 }
+
 .city-name {
     width: calc(100% - 30px);
     outline: none;
@@ -587,7 +626,8 @@ body {
     color: var(--scolor);
     background: var(--pcolor);
 }
-.search{
+
+.search {
     height: 100%;
     background: var(--pcolor);
     display: grid;
@@ -595,12 +635,14 @@ body {
     cursor: pointer;
     padding: 0 10px 0 5px;
 }
-.search i{
+
+.search i {
     color: var(--scolor);
     font-size: 20px;
     position: relative;
 }
-.search i a{
+
+.search i a {
     width: 20px;
     height: 20px;
     position: absolute;
@@ -638,7 +680,9 @@ body {
     color: var(--pcolor);
     cursor: pointer;
 }
-.temp-val, .temp span{
+
+.temp-val,
+.temp span {
     color: var(--pcolor);
 }
 
@@ -669,7 +713,7 @@ body {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.details-blog{
+.details-blog {
     width: 100vw;
     height: 100vh;
     background: var(--pcolor);
@@ -683,18 +727,19 @@ body {
     visibility: hidden;
 }
 
-.open{
+.open {
     visibility: visible;
     top: 0;
 }
-.detail{
+
+.detail {
     width: 100%;
     color: var(--scolor);
     margin-top: 30px;
     font-size: 25px;
 }
 
-.details-blog i{
+.details-blog i {
     position: absolute;
     right: 15px;
     top: 5px;
@@ -703,24 +748,29 @@ body {
     color: var(--scolor);
 }
 
-body, .pg, .details-blog{
+body,
+.pg,
+.details-blog {
     overflow-x: hidden !important;
 }
 
 /* media querries */
 @media screen and (max-width: 650px) {
-    .stopwatch-wrap{
+    .stopwatch-wrap {
         scale: 2;
     }
-    .calculator{
+
+    .calculator {
         scale: 1.5;
     }
 }
+
 @media screen and (max-width: 320px) {
-    .stopwatch-wrap{
+    .stopwatch-wrap {
         scale: 1.2;
     }
-    .calculator{
+
+    .calculator {
         scale: 1;
     }
 }
