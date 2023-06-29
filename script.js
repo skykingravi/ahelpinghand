@@ -280,6 +280,7 @@ function showCityWeather(city) {
 };
 
 function showDetails(d) {
+    console.log(d);
     if (d.cod != 404) {
         let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
