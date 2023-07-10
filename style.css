@@ -383,7 +383,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    scale: 2.5;
+    scale: 2;
 }
 
 .sw-data {
@@ -468,7 +468,7 @@ body {
     position: relative;
     display: grid;
     font-size: 30px;
-    scale: 2;
+    scale: 1.5;
     border: 5px solid var(--scolor);
     background: var(--scolor);
 }
